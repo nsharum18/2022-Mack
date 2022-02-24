@@ -25,10 +25,6 @@ public final class Constants {
     public static final int LEFT_CLIMBER = 8;
     public static final int RIGHT_CLIMBER = 9;
 
-    //joystick values
-    public static final int DRIVER1_STICKS = 0;
-    public static final int DRIVER2_STICKS = 1;
-
     //arm encoder values
     public static final double ARM_SCORE_VALUE = 95;
     public static final double ARM_INTAKE_VALUE = 5;
@@ -53,4 +49,5 @@ public final class Constants {
     public static final double QUADRATURE_COUNT = 2048;
     public static final double EXTEND_HEIGHT = 100;
     public static final double RETRACT_HEIGHT = 20;
+    public static final double INTAKE_VALUE = 50;
 }
