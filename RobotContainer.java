@@ -6,7 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -41,8 +40,8 @@ public class RobotContainer {
 
 
   //setting controllers
-  XboxController Driver1 = new XboxController(Constants.DRIVER1_STICKS);
-  XboxController Driver2 = new XboxController(Constants.DRIVER2_STICKS);
+  XboxController Driver1 = new XboxController(XboxConstants.DRIVER1_STICKS);
+  XboxController Driver2 = new XboxController(XboxConstants.DRIVER2_STICKS);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -54,9 +53,8 @@ public class RobotContainer {
       
       new RunCommand(
         () ->
-          m_drive.arcadeDrive(Driver1.getY(GenericHID.Hand.kLeft), 
-                              Driver1.getX(GenericHID.Hand.kRight)),
-          m_drive));
+          m_drive.arcadeDrive(Driver1.getRawAxis(XboxConstants.LEFT_Y), 
+                              Driver1.getRawAxis(XboxConstants.RIGHT_X))));
     
     //sendable chooser would go here
     m_chooser.setDefaultOption("Simple Auto", SimpleAuto);
@@ -64,6 +62,8 @@ public class RobotContainer {
 
     //put chooser to shuffleboard
     Shuffleboard.getTab("Autonomous").add(m_chooser);
+    
+      
   }
 
   /**
@@ -74,30 +74,30 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //Driver1 a button score position
-    new JoystickButton(Driver1, Button.kA.value)
+    new JoystickButton(Driver1, XboxConstants.XBOX_A)
         .whenPressed(new ScorePosition(m_arm, m_wrist));
 
     //Driver1 b button intake position
-    new JoystickButton(Driver1, Button.kB.value)
+    new JoystickButton(Driver1, XboxConstants.XBOX_B)
         .whenPressed(new IntakePosition(m_arm, m_wrist));
 
     //Driver1 lbumper button intake position
-    new JoystickButton(Driver1, Button.kBumperLeft.value)
+    new JoystickButton(Driver1, XboxConstants.XBOX_LBUMPER)
         .whenPressed(new Intake(m_intake))
         .whenReleased(new IntakeStop(m_intake));
 
     //Driver1 RBumper button intake position
-    new JoystickButton(Driver1, Button.kBumperLeft.value)
+    new JoystickButton(Driver1, XboxConstants.XBOX_RBUMPER)
         .whenPressed(new Score(m_intake))
         .whenReleased(new IntakeStop(m_intake));
 
     //Driver1 X button intake position
-    new JoystickButton(Driver1, Button.kX.value)
+    new JoystickButton(Driver1, XboxConstants.XBOX_X)
         .whenPressed(new LClimberExtend(m_climber))
         .whenPressed(new RClimberExtend(m_climber));
 
     //Driver1 Y button intake position
-    new JoystickButton(Driver1, Button.kY.value)
+    new JoystickButton(Driver1, XboxConstants.XBOX_Y)
         .whenPressed(new LClimberRetract(m_climber))
         .whenPressed(new RClimberRetract(m_climber));
   }
