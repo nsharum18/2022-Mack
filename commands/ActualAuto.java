@@ -17,6 +17,9 @@ public class ActualAuto extends SequentialCommandGroup {
         //intake scoring
         new Score(m_intake),
 
+        //stops intake
+        new IntakeStop(m_intake),
+
          //drive to a backward set number, at a certain speed
         new DriveCommand(-Constants.BACKUP_DRIVE, -Constants.AUTO_SPEED, m_drive)
 
