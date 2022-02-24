@@ -8,7 +8,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class DriveCommand extends CommandBase {
+public class TurnCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   /**
    * Creates a new ExampleCommand.
@@ -17,15 +17,15 @@ public class DriveCommand extends CommandBase {
    */
     
     private final DriveSubsystem m_drive;
-    private final double m_distance;
+    private final double m_angle;
     private final double m_speed;
 
 
 
-    public DriveCommand(Double inches, Double speed, DriveSubsystem subsystem) {
+    public TurnCommand(Double angle, Double speed, DriveSubsystem subsystem) {
 
       m_drive = subsystem;
-      m_distance = inches;
+      m_angle = angle;
       m_speed = speed;
       addRequirements(m_drive);
 
@@ -39,7 +39,7 @@ public class DriveCommand extends CommandBase {
   public void initialize() {
 
     m_drive.resetEncoders();
-    m_drive.arcadeDrive(m_speed, 0);
+    m_drive.arcadeDrive(0, m_speed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -61,6 +61,6 @@ public class DriveCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_drive.getLMasterEnc() >= m_distance;
+    return m_drive.getLMasterEnc() >= m_angle; //change this with the NavX instead of LMasterEnc
   }
 }
