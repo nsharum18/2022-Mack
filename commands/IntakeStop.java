@@ -47,12 +47,13 @@ public class IntakeStop extends CommandBase {
   @Override
   public void end(boolean interrupted) {
 
+    m_intake.stop();
 
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
