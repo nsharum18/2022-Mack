@@ -47,6 +47,7 @@ public class Score extends CommandBase {
   @Override
   public void end(boolean interrupted) {
 
+    m_intake.stop();
 
   }
 
