@@ -44,6 +44,18 @@ public class IntakeSubsystem extends SubsystemBase {
 
   }
 
+  public void getIntakeEnc() {
+
+    intake.getSelectedSensorPosition();
+
+  }
+
+  public void zeroIntakeEnc() {
+
+    intake.setSelectedSensorPosition(0);
+    
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
