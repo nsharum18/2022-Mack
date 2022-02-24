@@ -11,7 +11,7 @@ public class ActualAuto extends SequentialCommandGroup {
     public ActualAuto(DriveSubsystem m_drive, ArmSubsystem m_arm, WristSubsystem m_wrist, IntakeSubsystem m_intake) {
         addCommands(
 
-        //arm up
+        //score position
         new ScorePosition(m_arm, m_wrist),
 
         //intake scoring
