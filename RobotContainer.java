@@ -55,7 +55,8 @@ public class RobotContainer {
       new RunCommand(
         () ->
           m_drive.arcadeDrive(Driver1.getRawAxis(XboxConstants.LEFT_Y), 
-                              Driver1.getRawAxis(XboxConstants.RIGHT_X))));
+                              Driver1.getRawAxis(XboxConstants.RIGHT_X))
+                              ));
     
     //sendable chooser would go here
     m_chooser.setDefaultOption("Simple Auto", SimpleAuto);
