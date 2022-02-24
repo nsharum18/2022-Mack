@@ -12,10 +12,7 @@ public class ActualAuto extends SequentialCommandGroup {
         addCommands(
 
         //arm up
-        new ArmUp(m_arm),
-
-        //wrist up
-        new WristUp(m_wrist), 
+        new ScorePosition(m_arm, m_wrist),
 
         //intake scoring
         new Score(m_intake),
