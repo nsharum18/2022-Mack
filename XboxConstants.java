@@ -12,45 +12,26 @@ package frc.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {
+public final class XboxConstants {
 
-    //motor IDs
-    public static final int LEFT_DRIVE_MASTER = 1;
-    public static final int LEFT_DRIVE_FOLLOWER = 2;
-    public static final int RIGHT_DRIVE_MASTER = 3;
-    public static final int RIGHT_DRIVE_FOLLOWER = 4;
-    public static final int ARM_MOTOR = 5;
-    public static final int WRIST_MOTOR = 6;
-    public static final int INTAKE_MOTOR = 7;
-    public static final int LEFT_CLIMBER = 8;
-    public static final int RIGHT_CLIMBER = 9;
-
-    //joystick values
+    //controller values
     public static final int DRIVER1_STICKS = 0;
     public static final int DRIVER2_STICKS = 1;
 
-    //arm encoder values
-    public static final double ARM_SCORE_VALUE = 95;
-    public static final double ARM_INTAKE_VALUE = 5;
-    public static final double ARM_STARTING_CONFIG = 95;
+    //joystick values
+    public static final int LEFT_Y = 1;
+    public static final int LEFT_X = 2;
+    public static final int RIGHT_Y = 3;
+    public static final int RIGHT_X = 4;
 
-    //wrist encoder values
-    public static final double WRIST_SCORE_VALUE = 18;
-    public static final double WRIST_INTAKE_VALUE = 2;
-    public static final double WRIST_STARTING_CONFIG = 20;
+    //joystick button values
+    public static final int XBOX_A = 1;
+    public static final int XBOX_B = 2;
+    public static final int XBOX_X = 3;
+    public static final int XBOX_Y = 4;
+    public static final int XBOX_LBUMPER = 5;
+    public static final int XBOX_RBUMPER = 6;
+    public static final int BACK = 7;
+    public static final int START = 8;
 
-    //robot speeds
-    public static final double AUTO_SPEED = 1;
-    public static final double DRIVE_SPEED = 1;
-    public static final double INTAKE_SPEED = .6;
-    public static final double SCORE_SPEED = 1;
-
-    //auto values
-    public static final double FORWARD_DRIVE = 100;
-    public static final double BACKUP_DRIVE = 100;
-
-    //misc values
-    public static final double QUADRATURE_COUNT = 2048;
-    public static final double EXTEND_HEIGHT = 100;
-    public static final double RETRACT_HEIGHT = 20;
 }
