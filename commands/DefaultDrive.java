@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants;
 import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import java.util.function.DoubleSupplier;
@@ -37,7 +38,7 @@ public class DefaultDrive extends CommandBase {
   @Override
   public void execute() {
 
-    m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
+    m_drive.arcadeDrive(m_forward.getAsDouble() * Constants.DRIVE_SPEED, m_rotation.getAsDouble() * Constants.DRIVE_SPEED);
 
   }
 
