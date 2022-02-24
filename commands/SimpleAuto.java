@@ -14,11 +14,8 @@ public class SimpleAuto extends SequentialCommandGroup {
         //drive to a forward set number, at a certain speed
         new DriveCommand(Constants.FORWARD_DRIVE, Constants.AUTO_SPEED, m_drive),
 
-        //arm up
-        new ArmUp(m_arm),
-
-        //wrist up
-        new WristUp(m_wrist),
+        //score position
+        new ScorePosition(m_arm, m_wrist),
 
         //intake scoring
         new Score(m_intake)
