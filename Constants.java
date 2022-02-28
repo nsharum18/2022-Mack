@@ -27,7 +27,7 @@ public final class Constants {
 
     //arm encoder values
     public static final double ARM_SCORE_VALUE = 118;
-    public static final double ARM_INTAKE_VALUE = 0;
+    public static final double ARM_INTAKE_VALUE = 2;
     public static final double ARM_STARTING_CONFIG = 118;
 
     //wrist encoder values
@@ -45,6 +45,8 @@ public final class Constants {
     //auto values
     public static final double FORWARD_DRIVE = 100;
     public static final double BACKUP_DRIVE = -50;
+    public static final double INTAKE_VALUE = 50;
+
 
     //climb values
     public static final double EXTEND_HEIGHT = 75;
@@ -52,6 +54,5 @@ public final class Constants {
 
     //misc values
     public static final double QUADRATURE_COUNT = 2048;
-    public static final double INTAKE_VALUE = 50;
     public static final double RAMP_TIME = 1;
 }
