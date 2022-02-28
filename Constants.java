@@ -44,7 +44,7 @@ public final class Constants {
 
     //auto values
     public static final double FORWARD_DRIVE = 100;
-    public static final double BACKUP_DRIVE = 50;
+    public static final double BACKUP_DRIVE = -50;
 
     //climb values
     public static final double EXTEND_HEIGHT = 75;
