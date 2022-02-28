@@ -5,7 +5,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -63,7 +62,7 @@ public class RobotContainer {
     m_chooser.addOption("ActualAuto", ActualAuto);
 
     //put chooser to shuffleboard
-    Shuffleboard.getTab("Autonomous").add(m_chooser);
+    SmartDashboard.putData("Autonomous", m_chooser);
     
       
   }
