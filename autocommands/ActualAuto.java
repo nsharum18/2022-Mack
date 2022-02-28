@@ -19,7 +19,7 @@ public class ActualAuto extends SequentialCommandGroup {
         new Score(m_intake),
 
          //drive to a backward set number, at a certain speed
-        new DriveCommand(false, Constants.BACKUP_DRIVE * -1, Constants.AUTO_SPEED * -1, m_drive)
+        new DriveCommand(false, Constants.BACKUP_DRIVE, Constants.AUTO_SPEED * -1, m_drive)
 
 
         );
