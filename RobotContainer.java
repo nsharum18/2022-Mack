@@ -26,13 +26,13 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_drive = new DriveSubsystem();
   private final ArmSubsystem m_arm = new ArmSubsystem();
-  private final ClimberSubsystem m_climber = new ClimberSubsystem();
+  private final ClimberSubsystem m_climb = new ClimberSubsystem();
   private final IntakeSubsystem m_intake = new IntakeSubsystem();
   private final WristSubsystem m_wrist = new WristSubsystem();
 
   //autos
-  private final Command ActualAuto = new ActualAuto(m_drive, m_arm, m_wrist, m_intake);
-  private final Command SimpleAuto = new SimpleAuto(m_drive, m_arm, m_wrist, m_intake);
+  private final Command ActualAuto = new ActualAuto(m_drive, m_arm, m_wrist, m_intake, m_climb);
+  private final Command SimpleAuto = new SimpleAuto(m_drive, m_arm, m_wrist, m_intake, m_climb);
 
   //sendable chooser
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -94,13 +94,13 @@ public class RobotContainer {
 
     //Driver1 X button intake position
     new JoystickButton(Driver1, XboxConstants.XBOX_X)
-        .whenPressed(new LClimberExtend(m_climber))
-        .whenPressed(new RClimberExtend(m_climber));
+        .whenPressed(new LClimberExtend(m_climb))
+        .whenPressed(new RClimberExtend(m_climb));
 
     //Driver1 Y button intake position
     new JoystickButton(Driver1, XboxConstants.XBOX_Y)
-        .whenPressed(new LClimberRetract(m_climber))
-        .whenPressed(new RClimberRetract(m_climber));
+        .whenPressed(new LClimberRetract(m_climb))
+        .whenPressed(new RClimberRetract(m_climb));
   }
 
   public void setStartConfig() {
