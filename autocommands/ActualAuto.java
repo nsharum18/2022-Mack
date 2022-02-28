@@ -9,8 +9,11 @@ import frc.robot.commands.*;
 public class ActualAuto extends SequentialCommandGroup {
 
 
-    public ActualAuto(DriveSubsystem m_drive, ArmSubsystem m_arm, WristSubsystem m_wrist, IntakeSubsystem m_intake) {
+    public ActualAuto(DriveSubsystem m_drive, ArmSubsystem m_arm, WristSubsystem m_wrist, IntakeSubsystem m_intake, ClimberSubsystem m_climb) {
         addCommands(
+          
+        //sets start config
+        new setStartConfig(m_arm, m_drive, m_intake, m_wrist, m_climb),
 
         //score position
         new ScorePosition(m_arm, m_wrist),
