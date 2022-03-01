@@ -42,12 +42,6 @@ public final class Constants {
     public static final double INTAKE_SPEED = .6;
     public static final double SCORE_SPEED = 1;
 
-    //auto values
-    public static final double FORWARD_DRIVE = 100;
-    public static final double BACKUP_DRIVE = -50;
-    public static final double INTAKE_VALUE = 50;
-
-
     //climb values
     public static final double EXTEND_HEIGHT = 75;
     public static final double RETRACT_HEIGHT = 5;
@@ -55,4 +49,53 @@ public final class Constants {
     //misc values
     public static final double QUADRATURE_COUNT = 2048;
     public static final double RAMP_TIME = 1;
+
+/********************** Left Auto **********************/
+
+public static final class LeftAuto {
+
+    //LeftAuto values
+    public static final double AUTO_BACKUP1 = -20;
+    public static final double AUTO_LTURN = -50;
+    public static final double AUTO_FORWARD1 = -10;
+    public static final double INTAKE_VALUE = 50;
+    public static final double AUTO_RTURN = 30;
+    public static final double AUTO_FORWARD2 = 60;
+
+
+    }
+
+/********************** Left One Ball Auto **********************/
+
+public static final class LeftOneBallAuto{
+
+    //LeftAuto values
+    public static final double AUTO_BACKUP1 = -20;
+    public static final double AUTO_LTURN = -40;
+    public static final double AUTO_FORWARD1 = -10;
+
 }
+
+/********************** Right One Ball Auto **********************/
+
+public static final class RightOneBallAuto{
+
+    //LeftAuto values
+    public static final double AUTO_BACKUP1 = -20;
+    public static final double AUTO_RTURN = 20;
+    public static final double AUTO_FORWARD1 = 20;
+
+}
+
+/********************** Back One Ball Auto **********************/
+
+public static final class BackOneBallAuto{
+
+    //LeftAuto values
+    public static final double AUTO_BACKUP1 = -30;
+
+}
+
+}
+
+
