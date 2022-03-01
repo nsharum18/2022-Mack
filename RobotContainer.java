@@ -32,12 +32,13 @@ public class RobotContainer {
   private final WristSubsystem m_wrist = new WristSubsystem();
 
   //autos
-  private final Command ActualAuto = new ActualAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
-  private final Command SimpleAuto = new SimpleAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
+  private final Command LeftTwoBallAuto = new LeftTwoBallAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
+  private final Command LeftOneBallAuto = new LeftOneBallAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
+  private final Command RightOneBallAuto = new LeftOneBallAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
+  private final Command BackOneBallAuto = new LeftOneBallAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
 
   //sendable chooser
   SendableChooser<Command> m_chooser = new SendableChooser<>();
-
 
   //setting controllers
   XboxController Driver1 = new XboxController(XboxConstants.DRIVER1_STICKS);
@@ -57,10 +58,12 @@ public class RobotContainer {
           m_drive.arcadeDrive(Driver1.getRawAxis(XboxConstants.LEFT_Y) * Constants.DRIVE_SPEED, 
                               Driver1.getRawAxis(XboxConstants.RIGHT_X) * Constants.TURN_SPEED * -1),
                               m_drive));
-    
-    //sendable chooser would go here
-    m_chooser.setDefaultOption("Simple Auto", SimpleAuto);
-    m_chooser.addOption("ActualAuto", ActualAuto);
+
+    //sendable chooser options
+    m_chooser.setDefaultOption("Left Two Ball", LeftTwoBallAuto);
+    m_chooser.addOption("Left One Ball", LeftOneBallAuto);
+    m_chooser.addOption("Right One Ball", RightOneBallAuto);
+    m_chooser.addOption("Back One Ball", BackOneBallAuto);
 
     //put chooser to shuffleboard
     SmartDashboard.putData("Autonomous", m_chooser);
@@ -76,23 +79,29 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    /************DRIVER1 BUTTONS************/
+    /****************** DRIVER1 CONTROLS ******************/
+    
+    //Driver1 ltrigger intakes
+    m_intake.intake(Driver1.getRawAxis(XboxConstants.LTRIGGER));
+    
+    //Driver1 rtrigger scores
+    m_intake.score(Driver1.getRawAxis(XboxConstants.RTRIGGER));
 
-    //Driver1 lbumper button intake position
+    //Driver1 lbumper button intake
     new JoystickButton(Driver1, XboxConstants.XBOX_LBUMPER)
         .whenPressed(new Intake(m_intake))
         .whenReleased(new IntakeStop(m_intake));
 
-    //Driver1 RBumper button intake position
+    //Driver1 RBumper button score
     new JoystickButton(Driver1, XboxConstants.XBOX_RBUMPER)
         .whenPressed(new Score(m_intake))
         .whenReleased(new IntakeStop(m_intake));
 
     //Sets start config
     new JoystickButton(Driver1, XboxConstants.START)
-         .whenPressed(new setStartConfig(m_arm, m_drive, m_intake, m_wrist, l_climb, r_climb));
+        .whenPressed(new setStartConfig(m_arm, m_drive, m_intake, m_wrist, l_climb, r_climb));
 
-    /************DRIVER2 BUTTONS************/
+    /****************** DRIVER2 CONTROLS ******************/
 
     //Driver2 a button score position
     new JoystickButton(Driver2, XboxConstants.XBOX_A)
@@ -134,7 +143,7 @@ public class RobotContainer {
   
 
 public Command getAutonomousCommand() {
-  //returns auto choice from shuffleboard (this is called in robot.java)
+  //returns auto choice from smartdashboard (this is called in robot.java)
 	return m_chooser.getSelected();
 }
 
@@ -143,8 +152,5 @@ public Command getAutonomousCommand() {
    *
    * @return the command to run in autonomous
    */
- /* public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return
-  }*/
+
 }
