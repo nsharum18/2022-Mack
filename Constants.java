@@ -83,7 +83,7 @@ public static final class RightOneBallAuto{
     //LeftAuto values
     public static final double AUTO_BACKUP1 = -20;
     public static final double AUTO_RTURN = 20;
-    public static final double AUTO_FORWARD1 = 20;
+    public static final double AUTO_FORWARD1 = 50;
 
 }
 
