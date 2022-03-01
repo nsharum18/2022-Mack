@@ -26,13 +26,14 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_drive = new DriveSubsystem();
   private final ArmSubsystem m_arm = new ArmSubsystem();
-  private final ClimberSubsystem m_climb = new ClimberSubsystem();
+  private final LClimbSubsystem l_climb = new LClimbSubsystem();
+  private final RClimbSubsystem r_climb = new RClimbSubsystem();
   private final IntakeSubsystem m_intake = new IntakeSubsystem();
   private final WristSubsystem m_wrist = new WristSubsystem();
 
   //autos
-  private final Command ActualAuto = new ActualAuto(m_drive, m_arm, m_wrist, m_intake, m_climb);
-  private final Command SimpleAuto = new SimpleAuto(m_drive, m_arm, m_wrist, m_intake, m_climb);
+  private final Command ActualAuto = new ActualAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
+  private final Command SimpleAuto = new SimpleAuto(m_drive, m_arm, m_wrist, m_intake, l_climb, r_climb);
 
   //sendable chooser
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -54,8 +55,8 @@ public class RobotContainer {
       new RunCommand(
         () ->
           m_drive.arcadeDrive(Driver1.getRawAxis(XboxConstants.LEFT_Y) * Constants.DRIVE_SPEED, 
-                              Driver1.getRawAxis(XboxConstants.RIGHT_X) * Constants.TURN_SPEED)
-                              ));
+                              Driver1.getRawAxis(XboxConstants.RIGHT_X) * Constants.TURN_SPEED * -1),
+                              m_drive));
     
     //sendable chooser would go here
     m_chooser.setDefaultOption("Simple Auto", SimpleAuto);
@@ -74,13 +75,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    //Driver1 a button score position
-    new JoystickButton(Driver1, XboxConstants.XBOX_A)
-        .whenPressed(new ScorePosition(m_arm, m_wrist));
 
-    //Driver1 b button intake position
-    new JoystickButton(Driver1, XboxConstants.XBOX_B)
-        .whenPressed(new IntakePosition(m_arm, m_wrist));
+    /************DRIVER1 BUTTONS************/
 
     //Driver1 lbumper button intake position
     new JoystickButton(Driver1, XboxConstants.XBOX_LBUMPER)
@@ -92,15 +88,27 @@ public class RobotContainer {
         .whenPressed(new Score(m_intake))
         .whenReleased(new IntakeStop(m_intake));
 
-    //Driver1 X button intake position
-    new JoystickButton(Driver1, XboxConstants.XBOX_X)
-        .whenPressed(new LClimberExtend(m_climb))
-        .whenPressed(new RClimberExtend(m_climb));
+    //Sets start config
+    new JoystickButton(Driver1, XboxConstants.START)
+         .whenPressed(new setStartConfig(m_arm, m_drive, m_intake, m_wrist, l_climb, r_climb));
 
-    //Driver1 Y button intake position
-    new JoystickButton(Driver1, XboxConstants.XBOX_Y)
-        .whenPressed(new LClimberRetract(m_climb))
-        .whenPressed(new RClimberRetract(m_climb));
+    /************DRIVER2 BUTTONS************/
+
+    //Driver2 a button score position
+    new JoystickButton(Driver2, XboxConstants.XBOX_A)
+        .whenPressed(new ScorePosition(m_arm, m_wrist));
+
+    //Driver2 b button intake position
+    new JoystickButton(Driver2, XboxConstants.XBOX_B)
+        .whenPressed(new IntakePosition(m_arm, m_wrist));
+
+    //Driver2 b button intake position
+    new JoystickButton(Driver2, XboxConstants.XBOX_LBUMPER)
+        .whenPressed(new ClimbersExtend(l_climb, r_climb));
+
+    //Driver2 X button intake position
+    new JoystickButton(Driver2, XboxConstants.XBOX_RBUMPER)
+         .whenPressed(new ClimbersRetract(l_climb, r_climb));
   }
 
   public void setStartConfig() {
@@ -119,6 +127,8 @@ public class RobotContainer {
     SmartDashboard.putNumber("Average Drive Encoder", m_drive.getAverage());
     SmartDashboard.putNumber("Wrist Encoder", m_wrist.getWristEnc());
     SmartDashboard.putNumber("Intake Encoder", m_intake.getIntakeEnc());
+    SmartDashboard.putNumber("Left Climb", l_climb.getlClimberEnc());
+    SmartDashboard.putNumber("Right Climb", r_climb.getrClimberEnc());
   }
 
   
