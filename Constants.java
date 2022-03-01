@@ -27,18 +27,18 @@ public final class Constants {
 
     //arm encoder values
     public static final double ARM_SCORE_VALUE = 118;
-    public static final double ARM_INTAKE_VALUE = 2;
+    public static final double ARM_INTAKE_VALUE = 5;
     public static final double ARM_STARTING_CONFIG = 118;
 
     //wrist encoder values
-    public static final double WRIST_SCORE_VALUE = 12;
+    public static final double WRIST_SCORE_VALUE = 11;
     public static final double WRIST_INTAKE_VALUE = 2;
-    public static final double WRIST_STARTING_CONFIG = 18.5;
+    public static final double WRIST_STARTING_CONFIG = 18;
 
     //robot speeds
     public static final double AUTO_SPEED = .5;
     public static final double TURN_SPEED = .5;
-    public static final double DRIVE_SPEED = 1;
+    public static final double DRIVE_SPEED = .6;
     public static final double INTAKE_SPEED = .6;
     public static final double SCORE_SPEED = 1;
 
