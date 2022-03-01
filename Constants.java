@@ -50,7 +50,7 @@ public final class Constants {
     public static final double QUADRATURE_COUNT = 2048;
     public static final double RAMP_TIME = 1;
 
-/********************** Left Auto **********************/
+/********************** Left Two Ball Auto **********************/
 
 public static final class LeftAuto {
 
