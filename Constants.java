@@ -44,7 +44,8 @@ public final class Constants {
     public static final double SCORE_SPEED = 1;
 
     //climb values
-    public static final double EXTEND_HEIGHT = 135;
+    public static final double LEXTEND_HEIGHT = 135;
+    public static final double REXTEND_HEIGHT = 135;
     public static final double RETRACT_HEIGHT = 5;
 
     //misc values
