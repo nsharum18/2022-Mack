@@ -57,6 +57,6 @@ public class LClimberExtend extends CommandBase {
   @Override
   public boolean isFinished() {
     
-    return lclimber.getlClimberEnc() >= Constants.EXTEND_HEIGHT;
+    return lclimber.getlClimberEnc() >= Constants.LEXTEND_HEIGHT;
   }
 }
