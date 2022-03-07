@@ -57,6 +57,6 @@ public class RClimberExtend extends CommandBase {
   @Override
   public boolean isFinished() {
     
-    return rclimber.getrClimberEnc() >= Constants.EXTEND_HEIGHT;
+    return rclimber.getrClimberEnc() >= Constants.REXTEND_HEIGHT;
   }
 }
